@@ -1,0 +1,9 @@
+set {box} = true
+ram: What the heck is this thing?
+chip (Chip): * Memory log 3. Date recorded\: 26/4/[glitch][wave][wave]XXXX[/wave][/wave][/glitch]???
+chip (Chip): * Hello? Can anybody hear me? The ship is under fire! I need help dammit! I can't do this alone...
+chip (Glitchy): * PLEASE send help... It's my res-     [glitch][wave][wave]&*!&#[/wave][/wave] It's my res-          [glitch][wave][wave][wave][wave]!#*^*!@^[/wave][/wave][/wave][/wave][/glitch] to-[/glitch]
+ram: ...
+chip (Chip): [glitch]* End of message.[/glitch]
+ram: Huh... Weird...
+set {box} = false

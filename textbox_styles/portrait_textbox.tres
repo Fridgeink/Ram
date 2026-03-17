@@ -1,0 +1,91 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=19 format=3 uid="uid://c1i4pd2ww0dj"]
+
+[ext_resource type="PackedScene" uid="uid://cqpb3ie51rwl5" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_Default/default_layout_base.tscn" id="1_uuh8o"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_8xlxv"]
+[ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="3_a4epx"]
+[ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="4_enljp"]
+[ext_resource type="PackedScene" uid="uid://bfx7kf4v5ksii" path="res://textbox_custom_layers/custom_textbox_with_portrait_.tscn" id="5_romjj"]
+[ext_resource type="PackedScene" uid="uid://dsbwnp5hegnu3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Glossary/glossary_popup_layer.tscn" id="6_rue5q"]
+[ext_resource type="PackedScene" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="7_2rsjx"]
+[ext_resource type="PackedScene" uid="uid://cvgf4c6gg0tsy" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.tscn" id="8_cxfhd"]
+[ext_resource type="PackedScene" uid="uid://lx24i8fl6uo" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/history_layer.tscn" id="9_3hhqm"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_xnun8"]
+
+[sub_resource type="Resource" id="Resource_k03su"]
+script = ExtResource("2_8xlxv")
+scene = ExtResource("1_uuh8o")
+overrides = {
+"canvas_layer": "99.0",
+"global_bg_color": "Color(0, 0, 0, 0)",
+"global_font": "\"res://assets/fonts/Born2bSportyV2.ttf\"",
+"global_font_size": "32.0"
+}
+
+[sub_resource type="Resource" id="Resource_prnm5"]
+script = ExtResource("2_8xlxv")
+scene = ExtResource("3_a4epx")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_3aol5"]
+script = ExtResource("2_8xlxv")
+scene = ExtResource("4_enljp")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_a2468"]
+script = ExtResource("2_8xlxv")
+scene = ExtResource("5_romjj")
+overrides = {
+"box_distance": "16.0",
+"box_modulate_custom_color": "Color(1, 1, 1, 1)",
+"box_modulate_global_color": "false",
+"box_size": "Vector2(600, 120)",
+"custom_italic_font": "\"res://assets/fonts/Born2bSportyV2-Italics.ttf\"",
+"custom_normal_font": "\"res://assets/fonts/Born2bSportyV2.ttf\"",
+"portrait_bg_modulate": "Color(0, 0, 0, 0)",
+"use_global_fonts": "false"
+}
+
+[sub_resource type="Resource" id="Resource_q6ibs"]
+script = ExtResource("2_8xlxv")
+scene = ExtResource("6_rue5q")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_g7jeg"]
+script = ExtResource("2_8xlxv")
+scene = ExtResource("7_2rsjx")
+overrides = {
+"text_color_custom": "Color(0.592157, 0.756863, 0.984314, 1)",
+"text_color_disabled": "Color(0.247059, 0.447059, 0.72549, 1)",
+"text_color_focused": "Color(0.921569, 0.921569, 1, 1)",
+"text_color_hovered": "Color(0.921569, 0.921569, 1, 1)",
+"text_color_pressed": "Color(0.921569, 0.921569, 1, 1)",
+"text_color_use_global": "false"
+}
+
+[sub_resource type="Resource" id="Resource_w6m1m"]
+script = ExtResource("2_8xlxv")
+scene = ExtResource("8_cxfhd")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_80a80"]
+script = ExtResource("2_8xlxv")
+scene = ExtResource("9_3hhqm")
+overrides = {}
+
+[resource]
+script = ExtResource("10_xnun8")
+name = "portrait_textbox"
+layer_list = Array[String](["10", "11", "12", "13", "14", "15", "16"])
+layer_info = {
+"": SubResource("Resource_k03su"),
+"10": SubResource("Resource_prnm5"),
+"11": SubResource("Resource_3aol5"),
+"12": SubResource("Resource_a2468"),
+"13": SubResource("Resource_q6ibs"),
+"14": SubResource("Resource_g7jeg"),
+"15": SubResource("Resource_w6m1m"),
+"16": SubResource("Resource_80a80")
+}
+base_overrides = {}
+layers = Array[ExtResource("2_8xlxv")]([])
+metadata/_latest_layer = ""

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0raxtx6nh1ym"]
+
+[ext_resource type="Theme" uid="uid://do2kqsarnicxh" path="res://default_theme.tres" id="1_i772a"]
+[ext_resource type="PackedScene" uid="uid://cp2k3iao2ibs1" path="res://scenes/scene_transition.tscn" id="1_yrw50"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_evsdy"]
+
+[node name="MainMenu" type="Control"]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_i772a")
+script = ExtResource("2_evsdy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.0196078, 0.121569, 0.223529, 1)
+
+[node name="SceneTransition" parent="." instance=ExtResource("1_yrw50")]

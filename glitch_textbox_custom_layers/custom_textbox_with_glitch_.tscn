@@ -1,0 +1,134 @@
+[gd_scene load_steps=14 format=3 uid="uid://dmlc8yud0jwx4"]
+
+[ext_resource type="Script" path="res://textbox_custom_layers/speaker_portrait_textbox_layer.gd" id="1_u6cda"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="2_sivjy"]
+[ext_resource type="Script" path="res://scripts/shake_effect.gd" id="3_3aibo"]
+[ext_resource type="Shader" path="res://glitch.gdshader" id="3_l8o8w"]
+[ext_resource type="Script" path="res://scripts/wave_effect.gd" id="4_j653b"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="5_i61bp"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="6_am1ck"]
+[ext_resource type="Script" path="res://scripts/glitch_effect.gd" id="6_u3v38"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmg1w"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fb7id"]
+shader = ExtResource("3_l8o8w")
+shader_parameter/enabled = true
+shader_parameter/glitch_density = 0.1
+shader_parameter/speed = 16.0
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_n0tnl"]
+script = ExtResource("3_3aibo")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_uucdn"]
+script = ExtResource("4_j653b")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_3bheq"]
+script = ExtResource("6_u3v38")
+
+[node name="TextboxWithSpeakerPortrait" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_u6cda")
+box_panel = "res://addons/dialogic/Modules/DefaultLayoutParts/Layer_SpeakerPortraitTextbox/default_stylebox.tres"
+
+[node name="Anchor" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="Anchor"]
+unique_name_in_owner = true
+self_modulate = Color(0.533333, 0.376471, 0.176471, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -162.0
+offset_right = 300.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="HBox" type="HBoxContainer" parent="Anchor/Panel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -16
+
+[node name="PortraitPanel" type="Panel" parent="Anchor/Panel/HBox"]
+unique_name_in_owner = true
+clip_children = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dmg1w")
+
+[node name="PortraitBackgroundColor" type="ColorRect" parent="Anchor/Panel/HBox/PortraitPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -4.0
+offset_right = 64.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.231373)
+
+[node name="DialogicNode_PortraitContainer" type="Control" parent="Anchor/Panel/HBox/PortraitPanel/PortraitBackgroundColor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = 4.0
+offset_right = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_sivjy")
+mode = 1
+container_ids = PackedStringArray("1")
+debug_character_portrait = "speaker"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Anchor/Panel/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/Panel/HBox/VBoxContainer" node_paths=PackedStringArray("textbox_root")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_fb7id")
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "Some text"
+scroll_following = true
+custom_effects = [SubResource("RichTextEffect_n0tnl"), SubResource("RichTextEffect_uucdn"), SubResource("RichTextEffect_3bheq")]
+visible_characters_behavior = 1
+script = ExtResource("5_i61bp")
+textbox_root = NodePath("../../..")
+
+[node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText"]
+script = ExtResource("6_am1ck")

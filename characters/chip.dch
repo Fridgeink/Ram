@@ -1,0 +1,63 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"prefix": "",
+"sound_mood_default": "Default",
+"sound_moods": {
+"Default": {
+"mode": 0,
+"name": "Default",
+"pitch_base": 1.0,
+"pitch_variance": -0.4,
+"skip_characters": 0.0,
+"sound_path": "res://assets/sound/dialogue/chip.wav",
+"volume_base": -20.0,
+"volume_variance": 0.0
+},
+"Glitch": {
+"mode": 0,
+"name": "Glitch",
+"pitch_base": 0.5,
+"pitch_variance": 0.0,
+"skip_characters": 2.0,
+"sound_path": "res://assets/sound/dialogue/chip.wav",
+"volume_base": 0.0,
+"volume_variance": 0.0
+}
+},
+"style": "gltich_textbox",
+"suffix": ""
+},
+"default_portrait": "Chip",
+"description": "",
+"display_name": "chip",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, 0),
+"portraits": {
+"Chip": {
+"export_overrides": {
+"image": "\"res://portraits/memchip.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "",
+"sound_mood": "Default"
+},
+"Glitchy": {
+"export_overrides": {
+"image": "\"res://portraits/memchip_glitch.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "",
+"sound_mood": "Glitch"
+}
+},
+"scale": 1.0
+}

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8cugreo55wxs"]
+
+[ext_resource type="Script" path="res://scripts/audio_controller.gd" id="1_dbap7"]
+[ext_resource type="AudioStream" uid="uid://b1cun8scponco" path="res://assets/music/title/Memory.mp3" id="2_vpjfk"]
+
+[node name="AudioController" type="Node"]
+script = ExtResource("1_dbap7")
+
+[node name="Title" type="Node" parent="."]
+
+[node name="Memory" type="AudioStreamPlayer" parent="Title"]
+stream = ExtResource("2_vpjfk")
+volume_db = -40.0

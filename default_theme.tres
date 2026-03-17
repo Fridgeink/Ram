@@ -1,0 +1,106 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://do2kqsarnicxh"]
+
+[ext_resource type="FontFile" uid="uid://v6nalb44n4ry" path="res://assets/fonts/Born2bSportyV2.ttf" id="1_b2lxn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ysxv7"]
+bg_color = Color(0.0196078, 0.121569, 0.223529, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.886275, 0.647059, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bek8"]
+bg_color = Color(0.0196078, 0.121569, 0.223529, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.886275, 0.647059, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnjis"]
+bg_color = Color(0.0196078, 0.121569, 0.223529, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.886275, 0.647059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gf5bl"]
+bg_color = Color(0.0196078, 0.121569, 0.223529, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.92549, 0.403922, 0.384314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el0ap"]
+bg_color = Color(0.0196078, 0.121569, 0.223529, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.886275, 0.647059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ver82"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgamx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3h7f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qi2ov"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kaodg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[resource]
+Button/colors/font_color = Color(0.92549, 0.403922, 0.384314, 1)
+Button/colors/font_focus_color = Color(0.996078, 0.65098, 0.454902, 1)
+Button/colors/font_hover_color = Color(0.996078, 0.65098, 0.454902, 1)
+Button/colors/font_hover_pressed_color = Color(1, 0.886275, 0.647059, 1)
+Button/colors/font_pressed_color = Color(1, 0.886275, 0.647059, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_b2lxn")
+Button/styles/focus = SubResource("StyleBoxFlat_ysxv7")
+Button/styles/hover = SubResource("StyleBoxFlat_1bek8")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_cnjis")
+Button/styles/normal = SubResource("StyleBoxFlat_gf5bl")
+Button/styles/pressed = SubResource("StyleBoxFlat_el0ap")
+Label/fonts/font = ExtResource("1_b2lxn")
+ObjectButton/base_type = &"Button"
+ObjectButton/colors/font_color = Color(0, 0, 0, 1)
+ObjectButton/colors/font_disabled_color = Color(0, 0, 0, 1)
+ObjectButton/colors/font_focus_color = Color(0, 0, 0, 1)
+ObjectButton/colors/font_hover_color = Color(0, 0, 0, 1)
+ObjectButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+ObjectButton/colors/font_outline_color = Color(0, 0, 0, 1)
+ObjectButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+ObjectButton/colors/icon_disabled_color = Color(0, 0, 0, 1)
+ObjectButton/colors/icon_focus_color = Color(0, 0, 0, 1)
+ObjectButton/colors/icon_hover_color = Color(0, 0, 0, 1)
+ObjectButton/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+ObjectButton/colors/icon_normal_color = Color(0, 0, 0, 1)
+ObjectButton/colors/icon_pressed_color = Color(0, 0, 0, 1)
+ObjectButton/constants/align_to_largest_stylebox = 0
+ObjectButton/constants/h_separation = 0
+ObjectButton/constants/icon_max_width = 0
+ObjectButton/constants/outline_size = 0
+ObjectButton/font_sizes/font_size = 16
+ObjectButton/fonts/font = ExtResource("1_b2lxn")
+ObjectButton/styles/disabled = SubResource("StyleBoxFlat_ver82")
+ObjectButton/styles/focus = SubResource("StyleBoxFlat_cgamx")
+ObjectButton/styles/hover = SubResource("StyleBoxFlat_k3h7f")
+ObjectButton/styles/normal = SubResource("StyleBoxFlat_qi2ov")
+ObjectButton/styles/pressed = SubResource("StyleBoxFlat_kaodg")

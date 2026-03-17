@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp2k3iao2ibs1"]
+
+[ext_resource type="Script" path="res://scripts/scene_transition.gd" id="1_fyf7i"]
+[ext_resource type="Shader" path="res://transition.gdshader" id="2_6a0ie"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5p0qd"]
+shader = ExtResource("2_6a0ie")
+shader_parameter/progress = 0.0
+shader_parameter/diamondPixelSize = 16.0
+shader_parameter/reverse = false
+
+[node name="SceneTransition" type="CanvasLayer"]
+process_physics_priority = -100
+layer = 99
+script = ExtResource("1_fyf7i")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5p0qd")
+custom_minimum_size = Vector2(640, 360)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)

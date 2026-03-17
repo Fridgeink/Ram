@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://3exud4rmdh7x"]
+
+[ext_resource type="Script" path="res://scripts/loading_screen.gd" id="1_5ck4d"]
+[ext_resource type="FontFile" uid="uid://v6nalb44n4ry" path="res://assets/fonts/Born2bSportyV2.ttf" id="2_kboow"]
+[ext_resource type="PackedScene" uid="uid://djrhdwbf4dqr7" path="res://scenes/load_timelines.tscn" id="3_6l7nt"]
+
+[node name="LoadingScreen" type="CanvasLayer"]
+script = ExtResource("1_5ck4d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(640, 360)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="ProgressLabel" type="RichTextLabel" parent="."]
+offset_left = 449.0
+offset_top = 233.0
+offset_right = 616.0
+offset_bottom = 337.0
+theme_override_fonts/normal_font = ExtResource("2_kboow")
+theme_override_font_sizes/normal_font_size = 64
+
+[node name="LoadTimelines" parent="." instance=ExtResource("3_6l7nt")]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ceo0w1oepfwpb"]
+
+[ext_resource type="Script" path="res://scripts/cursor.gd" id="1_0d8c0"]
+[ext_resource type="Texture2D" uid="uid://bb6uk8t0iuwxk" path="res://assets/sprites/cursor.png" id="1_e45o1"]
+[ext_resource type="Script" path="res://scripts/in_game_ui.gd" id="1_nqvle"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5lfc"]
+size = Vector2(6, 6)
+
+[node name="InGameUi" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_nqvle")
+
+[node name="Cursor" type="Sprite2D" parent="." groups=["Cursor"]]
+scale = Vector2(3, 3)
+texture = ExtResource("1_e45o1")
+centered = false
+script = ExtResource("1_0d8c0")
+
+[node name="CursorArea" type="Area2D" parent="Cursor" groups=["Cursor"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/CursorArea"]
+shape = SubResource("RectangleShape2D_i5lfc")
