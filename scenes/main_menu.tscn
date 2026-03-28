@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0raxtx6nh1ym"]
+[gd_scene load_steps=8 format=3 uid="uid://c0raxtx6nh1ym"]
 
 [ext_resource type="Theme" uid="uid://do2kqsarnicxh" path="res://default_theme.tres" id="1_i772a"]
 [ext_resource type="PackedScene" uid="uid://cp2k3iao2ibs1" path="res://scenes/scene_transition.tscn" id="1_yrw50"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_evsdy"]
+[ext_resource type="Texture2D" uid="uid://b4fgmevtauuok" path="res://assets/sprites/ui_arrow.png" id="4_ay2a8"]
+[ext_resource type="PackedScene" uid="uid://dt0wif4kiqki0" path="res://scenes/interactable_area.tscn" id="5_80bks"]
+[ext_resource type="PackedScene" uid="uid://lgqo0un0dm0" path="res://scenes/pause_menu.tscn" id="6_0vhe2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbhf4"]
+size = Vector2(29.0909, 20)
 
 [node name="MainMenu" type="Control"]
 custom_minimum_size = Vector2(640, 360)
@@ -12,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_i772a")
 script = ExtResource("2_evsdy")
 
@@ -20,6 +27,30 @@ custom_minimum_size = Vector2(640, 360)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 color = Color(0.0196078, 0.121569, 0.223529, 1)
 
 [node name="SceneTransition" parent="." instance=ExtResource("1_yrw50")]
+
+[node name="Buttons" type="Control" parent="."]
+custom_minimum_size = Vector2(640, 360)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(87, 164)
+scale = Vector2(3, 3)
+texture = ExtResource("4_ay2a8")
+
+[node name="InteractableArea" parent="Sprite2D" instance=ExtResource("5_80bks")]
+enabled = true
+type = "scene"
+next_scene = "level_1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/InteractableArea"]
+position = Vector2(-0.969698, 0)
+shape = SubResource("RectangleShape2D_vbhf4")
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_0vhe2")]

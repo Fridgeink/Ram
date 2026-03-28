@@ -1,0 +1,168 @@
+[gd_scene load_steps=9 format=3 uid="uid://de54rvbnvc5el"]
+
+[ext_resource type="Texture2D" uid="uid://can6l5wp1tjsc" path="res://assets/sprites/back.png" id="2_qkqr5"]
+[ext_resource type="Texture2D" uid="uid://byn6hhfucghuc" path="res://assets/sprites/front.png" id="3_6umlk"]
+[ext_resource type="Script" path="res://scripts/card.gd" id="3_yot8r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1qg6"]
+size = Vector2(80, 104)
+
+[sub_resource type="Animation" id="Animation_62fds"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scaler/Back:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scaler/Front:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_xtwbl"]
+resource_name = "turn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scaler/Back:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, -1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scaler/Front:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 1]
+}
+
+[sub_resource type="Animation" id="Animation_k7rg7"]
+resource_name = "turn_back"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scaler/Front:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, -1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scaler/Back:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0uv3a"]
+_data = {
+"RESET": SubResource("Animation_62fds"),
+"turn": SubResource("Animation_xtwbl"),
+"turn_back": SubResource("Animation_k7rg7")
+}
+
+[node name="Card" type="Control"]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("3_yot8r")
+
+[node name="Scaler" type="Node2D" parent="."]
+use_parent_material = true
+
+[node name="Back" type="Sprite2D" parent="Scaler"]
+z_index = 2
+use_parent_material = true
+texture = ExtResource("2_qkqr5")
+
+[node name="Front" type="Sprite2D" parent="Scaler"]
+z_index = 1
+use_parent_material = true
+texture = ExtResource("3_6umlk")
+
+[node name="Area2D" type="Area2D" parent="Scaler"]
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scaler/Area2D"]
+z_index = 1
+shape = SubResource("RectangleShape2D_u1qg6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0uv3a")
+}
+
+[connection signal="mouse_entered" from="Scaler/Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Scaler/Area2D" to="." method="_on_mouse_exited"]

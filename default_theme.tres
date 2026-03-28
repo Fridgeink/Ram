@@ -59,8 +59,8 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3h7f"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qi2ov"]
-bg_color = Color(1, 1, 1, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rjsh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kaodg"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -79,7 +79,6 @@ Button/styles/hover_pressed = SubResource("StyleBoxFlat_cnjis")
 Button/styles/normal = SubResource("StyleBoxFlat_gf5bl")
 Button/styles/pressed = SubResource("StyleBoxFlat_el0ap")
 Label/fonts/font = ExtResource("1_b2lxn")
-ObjectButton/base_type = &"Button"
 ObjectButton/colors/font_color = Color(0, 0, 0, 1)
 ObjectButton/colors/font_disabled_color = Color(0, 0, 0, 1)
 ObjectButton/colors/font_focus_color = Color(0, 0, 0, 1)
@@ -97,10 +96,11 @@ ObjectButton/constants/align_to_largest_stylebox = 0
 ObjectButton/constants/h_separation = 0
 ObjectButton/constants/icon_max_width = 0
 ObjectButton/constants/outline_size = 0
-ObjectButton/font_sizes/font_size = 16
+ObjectButton/font_sizes/font_size = 1
 ObjectButton/fonts/font = ExtResource("1_b2lxn")
+ObjectButton/icons/icon = null
 ObjectButton/styles/disabled = SubResource("StyleBoxFlat_ver82")
 ObjectButton/styles/focus = SubResource("StyleBoxFlat_cgamx")
 ObjectButton/styles/hover = SubResource("StyleBoxFlat_k3h7f")
-ObjectButton/styles/normal = SubResource("StyleBoxFlat_qi2ov")
+ObjectButton/styles/normal = SubResource("StyleBoxFlat_4rjsh")
 ObjectButton/styles/pressed = SubResource("StyleBoxFlat_kaodg")

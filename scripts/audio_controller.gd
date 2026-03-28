@@ -3,9 +3,12 @@ extends Node
 var rng = RandomNumberGenerator.new()
 
 var title_songs := [
-	"Memory",
+	"MEMORY",
 ]
 
+var level1_songs := [
+	"SYSTEM INITIALIZE"
+]
 var active_playlist := "title"
 
 var previous_playlist := ""
@@ -59,6 +62,7 @@ func _setup_all_playlists():
 
 func _ready():
 	_setup_all_playlists()
+	play_playlist("title")
 
 func _process(_float) -> void:
 	if playing_theme and Dialogic.VAR.box == false:
@@ -184,7 +188,6 @@ func _on_song_finished():
 
 	state["index"] = (state["index"] + 1) % state["songs"].size()
 	play_song(state["index"])
-
 
 func toggle_pause():
 	var state = playlist_states[active_playlist]

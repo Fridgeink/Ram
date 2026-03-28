@@ -1,13 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8cugreo55wxs"]
+[gd_scene load_steps=4 format=3 uid="uid://b8cugreo55wxs"]
 
 [ext_resource type="Script" path="res://scripts/audio_controller.gd" id="1_dbap7"]
-[ext_resource type="AudioStream" uid="uid://b1cun8scponco" path="res://assets/music/title/Memory.mp3" id="2_vpjfk"]
+[ext_resource type="AudioStream" uid="uid://gx0fxrsok2bt" path="res://assets/music/title/MEMORY.mp3" id="2_icbjt"]
+[ext_resource type="AudioStream" uid="uid://dmms4tvdq7nqt" path="res://assets/music/level1/SYSTEM INITIALIZE.mp3" id="3_miuev"]
 
 [node name="AudioController" type="Node"]
 script = ExtResource("1_dbap7")
 
 [node name="Title" type="Node" parent="."]
 
-[node name="Memory" type="AudioStreamPlayer" parent="Title"]
-stream = ExtResource("2_vpjfk")
-volume_db = -40.0
+[node name="MEMORY" type="AudioStreamPlayer" parent="Title"]
+stream = ExtResource("2_icbjt")
+volume_db = -30.0
+
+[node name="Level 1" type="Node" parent="."]
+
+[node name="SYSTEM INITIALIZE" type="AudioStreamPlayer" parent="Level 1"]
+stream = ExtResource("3_miuev")
+volume_db = -15.0

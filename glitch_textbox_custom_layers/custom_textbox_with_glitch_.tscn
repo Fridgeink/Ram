@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://dmlc8yud0jwx4"]
 
+[ext_resource type="Shader" path="res://glitch_big.gdshader" id="1_q64rp"]
 [ext_resource type="Script" path="res://textbox_custom_layers/speaker_portrait_textbox_layer.gd" id="1_u6cda"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="2_sivjy"]
 [ext_resource type="Script" path="res://scripts/shake_effect.gd" id="3_3aibo"]
-[ext_resource type="Shader" path="res://glitch.gdshader" id="3_l8o8w"]
 [ext_resource type="Script" path="res://scripts/wave_effect.gd" id="4_j653b"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="5_i61bp"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="6_am1ck"]
@@ -13,10 +13,12 @@
 bg_color = Color(0.254902, 0.254902, 0.254902, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fb7id"]
-shader = ExtResource("3_l8o8w")
+shader = ExtResource("1_q64rp")
 shader_parameter/enabled = true
-shader_parameter/glitch_density = 0.1
+shader_parameter/glitch_strength = 2.0
+shader_parameter/glitch_density = 0.4
 shader_parameter/speed = 16.0
+shader_parameter/tex_height = 196.0
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_n0tnl"]
 script = ExtResource("3_3aibo")

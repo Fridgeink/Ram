@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var parent = get_node("..")
 @onready var material = $ColorRect.material
 @onready var color_rect: ColorRect = $ColorRect
+@onready var next
 
 func _ready():
 	on()
@@ -26,4 +27,10 @@ func off():
 	tween.tween_property(material, "shader_parameter/progress", 1.0, 0.5)
 	await tween.finished
 	await get_tree().process_frame
-	parent.next()
+	change_to_next()
+
+func change_to_next():
+	print("res://scenes/" + str(parent.next_scene) + ".tscn")
+	Global.loading = "res://scenes/" + str(parent.next_scene) + ".tscn"
+	var loading_screen = load("res://scenes/loading_screen.tscn")
+	get_tree().change_scene_to_packed(loading_screen)

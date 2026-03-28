@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=3 uid="uid://catpsp76y4amr"]
+
+[ext_resource type="Theme" uid="uid://do2kqsarnicxh" path="res://default_theme.tres" id="1_6hbcu"]
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_tmen8"]
+[ext_resource type="Shader" path="res://glitch.gdshader" id="3_qds4v"]
+[ext_resource type="Texture2D" uid="uid://dqcr488itu1bt" path="res://assets/sprites/title.png" id="3_x1ddh"]
+[ext_resource type="PackedScene" uid="uid://cp2k3iao2ibs1" path="res://scenes/scene_transition.tscn" id="5_yhjsx"]
+[ext_resource type="Texture2D" uid="uid://socaxlcb1vfs" path="res://assets/sprites/cutscene/full_ram.png" id="7_1swuo"]
+[ext_resource type="Script" path="res://scripts/interactable_area.gd" id="7_e6jdi"]
+
+[sub_resource type="Animation" id="Animation_al5qm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Title:material:shader_parameter/glitch_density")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_8we2w"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Title:material:shader_parameter/glitch_density")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.99, 0.1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6pqxn"]
+_data = {
+"RESET": SubResource("Animation_al5qm"),
+"title": SubResource("Animation_8we2w")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ss4r"]
+shader = ExtResource("3_qds4v")
+shader_parameter/enabled = true
+shader_parameter/glitch_density = 1.0
+shader_parameter/speed = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y24xh"]
+size = Vector2(223, 202)
+
+[node name="StartMenu" type="CanvasLayer"]
+script = ExtResource("1_tmen8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("7_1swuo")
+centered = false
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 48)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -275.0
+offset_top = -64.0
+offset_right = 275.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("1_6hbcu")
+theme_override_constants/separation = 265
+
+[node name="Start" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_6hbcu")
+text = "Start"
+
+[node name="Exit" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_6hbcu")
+text = "Exit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6pqxn")
+}
+autoplay = "title"
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(128, 96)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = -15.0
+offset_right = 64.0
+offset_bottom = 81.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(64, 0)
+mouse_filter = 2
+
+[node name="Title" type="Sprite2D" parent="Control"]
+material = SubResource("ShaderMaterial_7ss4r")
+texture = ExtResource("3_x1ddh")
+centered = false
+
+[node name="SceneTransition" parent="." instance=ExtResource("5_yhjsx")]
+
+[node name="InteractableArea" type="Area2D" parent="."]
+z_index = 100
+z_as_relative = false
+priority = 100
+script = ExtResource("7_e6jdi")
+enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
+position = Vector2(319.5, 259)
+shape = SubResource("RectangleShape2D_y24xh")
+
+[connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]

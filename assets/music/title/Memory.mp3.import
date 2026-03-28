@@ -2,13 +2,13 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://b1cun8scponco"
-path="res://.godot/imported/Memory.mp3-15f2ddd88c4f2469bb8e3d7033cef8ae.mp3str"
+uid="uid://gx0fxrsok2bt"
+path="res://.godot/imported/MEMORY.mp3-69203b1fafe876e0c6af868c038991ea.mp3str"
 
 [deps]
 
-source_file="res://assets/music/title/Memory.mp3"
-dest_files=["res://.godot/imported/Memory.mp3-15f2ddd88c4f2469bb8e3d7033cef8ae.mp3str"]
+source_file="res://assets/music/title/MEMORY.mp3"
+dest_files=["res://.godot/imported/MEMORY.mp3-69203b1fafe876e0c6af868c038991ea.mp3str"]
 
 [params]
 

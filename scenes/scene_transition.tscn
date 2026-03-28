@@ -19,4 +19,5 @@ material = SubResource("ShaderMaterial_5p0qd")
 custom_minimum_size = Vector2(640, 360)
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)

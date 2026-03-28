@@ -1,15 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://b21svkdq2fnhx"]
+[gd_scene load_steps=5 format=3 uid="uid://bxoidr2rb0nfv"]
 
 [ext_resource type="Script" path="res://scripts/sfx_controller.gd" id="1_dgebq"]
 [ext_resource type="AudioStream" uid="uid://8qgds5xxaih3" path="res://assets/sound/snd_bump.wav" id="2_8day8"]
 [ext_resource type="AudioStream" uid="uid://beaadq2jvjvra" path="res://assets/sound/snd_.mp3" id="3_be4ie"]
+[ext_resource type="AudioStream" uid="uid://cfuucvononyn0" path="res://assets/sound/snd_click.wav" id="4_imwba"]
 
 [node name="SfxController" type="Node"]
 script = ExtResource("1_dgebq")
 
 [node name="Bump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_8day8")
-volume_db = -5.0
+volume_db = -20.0
 
 [node name="Hum" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_be4ie")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_imwba")
+volume_db = -8.0

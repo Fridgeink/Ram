@@ -1,13 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceo0w1oepfwpb"]
+[gd_scene load_steps=4 format=3 uid="uid://ceo0w1oepfwpb"]
 
 [ext_resource type="Script" path="res://scripts/cursor.gd" id="1_0d8c0"]
 [ext_resource type="Texture2D" uid="uid://bb6uk8t0iuwxk" path="res://assets/sprites/cursor.png" id="1_e45o1"]
 [ext_resource type="Script" path="res://scripts/in_game_ui.gd" id="1_nqvle"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5lfc"]
-size = Vector2(6, 6)
-
-[node name="InGameUi" type="CanvasLayer"]
+[node name="InGameUi" type="CanvasLayer" groups=["Cursor"]]
+process_mode = 3
 layer = 100
 script = ExtResource("1_nqvle")
 
@@ -17,7 +15,25 @@ texture = ExtResource("1_e45o1")
 centered = false
 script = ExtResource("1_0d8c0")
 
-[node name="CursorArea" type="Area2D" parent="Cursor" groups=["Cursor"]]
+[node name="Timer" type="Timer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/CursorArea"]
-shape = SubResource("RectangleShape2D_i5lfc")
+[node name="TimerVisuals" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -189.0
+offset_right = -8.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="TimeLeft" type="Label" parent="TimerVisuals"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Time Left: "
+
+[node name="TimerLabel" type="Label" parent="TimerVisuals"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0:00"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
