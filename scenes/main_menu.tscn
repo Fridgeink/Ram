@@ -1,14 +1,52 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0raxtx6nh1ym"]
+[gd_scene load_steps=12 format=3 uid="uid://c0raxtx6nh1ym"]
 
 [ext_resource type="Theme" uid="uid://do2kqsarnicxh" path="res://default_theme.tres" id="1_i772a"]
 [ext_resource type="PackedScene" uid="uid://cp2k3iao2ibs1" path="res://scenes/scene_transition.tscn" id="1_yrw50"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_evsdy"]
-[ext_resource type="Texture2D" uid="uid://b4fgmevtauuok" path="res://assets/sprites/ui_arrow.png" id="4_ay2a8"]
+[ext_resource type="PackedScene" uid="uid://dc7rh2flnisen" path="res://scenes/log_button.tscn" id="5_3iwhp"]
 [ext_resource type="PackedScene" uid="uid://dt0wif4kiqki0" path="res://scenes/interactable_area.tscn" id="5_80bks"]
 [ext_resource type="PackedScene" uid="uid://lgqo0un0dm0" path="res://scenes/pause_menu.tscn" id="6_0vhe2"]
+[ext_resource type="Texture2D" uid="uid://bjsqe1b08qq6r" path="res://portraits/pda.png" id="7_2fki2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbhf4"]
-size = Vector2(29.0909, 20)
+[sub_resource type="Animation" id="Animation_oqvve"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pda:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jy47p"]
+resource_name = "pda_fade"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pda:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tvnq2"]
+_data = {
+"RESET": SubResource("Animation_oqvve"),
+"pda_fade": SubResource("Animation_jy47p")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnacl"]
+size = Vector2(64, 64)
 
 [node name="MainMenu" type="Control"]
 custom_minimum_size = Vector2(640, 360)
@@ -30,8 +68,6 @@ offset_bottom = 40.0
 mouse_filter = 2
 color = Color(0.0196078, 0.121569, 0.223529, 1)
 
-[node name="SceneTransition" parent="." instance=ExtResource("1_yrw50")]
-
 [node name="Buttons" type="Control" parent="."]
 custom_minimum_size = Vector2(640, 360)
 anchors_preset = 0
@@ -39,18 +75,42 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(87, 164)
-scale = Vector2(3, 3)
-texture = ExtResource("4_ay2a8")
-
-[node name="InteractableArea" parent="Sprite2D" instance=ExtResource("5_80bks")]
-enabled = true
-type = "scene"
-next_scene = "level_1"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/InteractableArea"]
-position = Vector2(-0.969698, 0)
-shape = SubResource("RectangleShape2D_vbhf4")
-
 [node name="PauseMenu" parent="." instance=ExtResource("6_0vhe2")]
+
+[node name="SceneTransition" parent="." instance=ExtResource("1_yrw50")]
+
+[node name="Logs" type="Control" parent="."]
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="Log_1" parent="Logs" instance=ExtResource("5_3iwhp")]
+position = Vector2(24, 160)
+
+[node name="Log_2" parent="Logs" instance=ExtResource("5_3iwhp")]
+position = Vector2(454, 45)
+
+[node name="Log_3" parent="Logs" instance=ExtResource("5_3iwhp")]
+position = Vector2(552, 237)
+
+[node name="Log_4" parent="Logs" instance=ExtResource("5_3iwhp")]
+position = Vector2(211, 54)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tvnq2")
+}
+
+[node name="Pda" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(147, 278)
+texture = ExtResource("7_2fki2")
+centered = false
+
+[node name="Pda" parent="Pda" instance=ExtResource("5_80bks")]
+enabled = false
+type = "scene"
+next_scene = "computer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pda/Pda"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_lnacl")

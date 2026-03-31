@@ -2,14 +2,24 @@ extends Node
 
 var rng = RandomNumberGenerator.new()
 
+var reset_songs := ["Reset"]
 var title_songs := [
 	"MEMORY",
 ]
 
-var level1_songs := [
-	"SYSTEM INITIALIZE"
+var memory_songs := [
+	"VOYAGE",
+	"COSMIC WAVE",
+	"DEEP",
+	"SYSTEM INITIALIZE",
+	"THICK SMOG",
 ]
-var active_playlist := "title"
+
+var computer_songs :=[
+	"OMI",
+]
+
+var active_playlist := "reset"
 
 var previous_playlist := ""
 
@@ -62,21 +72,20 @@ func _setup_all_playlists():
 
 func _ready():
 	_setup_all_playlists()
-	play_playlist("title")
 
 func _process(_float) -> void:
 	if playing_theme and Dialogic.VAR.box == false:
 		resume_previous_playlist()
 
-#func _input(event):
-	##if event.is_action_pressed("pause_song"):
-		##toggle_pause()
-	#if event.is_action_pressed("mute"):
-		#if Global.music_mute:
-			#Global.music_mute = false
-		#else:
-			#Global.music_mute = true
-		#mute_music()
+func _input(event):
+	#if event.is_action_pressed("pause_song"):
+		#toggle_pause()
+	if event.is_action_pressed("mute"):
+		if Global.music_mute:
+			Global.music_mute = false
+		else:
+			Global.music_mute = true
+		mute_music()
 	#elif event.is_action_pressed("skip_song"):
 		#skip_song()
 
@@ -237,3 +246,16 @@ func resume_previous_playlist():
 	if previous_playlist != "":
 		play_playlist(previous_playlist)
 		previous_playlist = active_playlist
+
+func mute_music():
+	if Global.music_mute:
+		AudioServer.set_bus_mute(
+			AudioServer.get_bus_index("Music"),
+			true
+		)
+
+	else:
+		AudioServer.set_bus_mute(
+			AudioServer.get_bus_index("Music"),
+			false
+		)

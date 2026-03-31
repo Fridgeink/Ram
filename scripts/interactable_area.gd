@@ -1,7 +1,7 @@
 extends Area2D
 class_name InteractableArea
 
-@export var enabled: bool
+@export var enabled: bool = true
 @export var type: String
 @export var next_scene: String
 
@@ -32,14 +32,28 @@ func _input(event: InputEvent) -> void:
 			sprite.visible = false
 	if type == "scene":
 		if event.is_action_pressed("click") and hovered:
-			parent.next_scene = next_scene
-			parent.transition.off()
+			CursorManager.hover = false
+			if parent.name == "Tutorial":
+				parent.anim.play("done")
+			elif parent.name == "Computer":
+				sprite.visible = true
+				enabled = false
+				parent.button_press()
+			else:
+				parent.next_scene = next_scene
+				parent.transition.off()
 
 func _on_mouse_entered() -> void:
-	hovered = true
+	if enabled:
+		CursorManager.hover = true
+		hovered = true
+		if type == "scene":
+			SfxController.clang_noise()
 
 func _on_mouse_exited() -> void:
-	hovered = false
+	if enabled:
+		CursorManager.hover = false
+		hovered = false
 
 func update_icon():
 	if sprite == null:

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://kor1pkb8fyb0"]
+
+[ext_resource type="Script" path="res://scripts/memory.gd" id="1_bvnnw"]
+[ext_resource type="Shader" path="res://glitch.gdshader" id="2_bi4cq"]
+[ext_resource type="PackedScene" uid="uid://ceo0w1oepfwpb" path="res://scenes/in_game_ui.tscn" id="3_l0131"]
+[ext_resource type="PackedScene" uid="uid://cp2k3iao2ibs1" path="res://scenes/scene_transition.tscn" id="4_nscu5"]
+[ext_resource type="PackedScene" uid="uid://lgqo0un0dm0" path="res://scenes/pause_menu.tscn" id="5_t3wrc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d6edm"]
+shader = ExtResource("2_bi4cq")
+shader_parameter/enabled = true
+shader_parameter/glitch_density = 0.05
+shader_parameter/speed = 8.0
+
+[node name="Log3" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+script = ExtResource("1_bvnnw")
+scale_factor = 2.3
+rows = 5
+cols = 6
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.0196078, 0.121569, 0.223529, 1)
+
+[node name="CardGrid" type="Control" parent="."]
+material = SubResource("ShaderMaterial_d6edm")
+layout_mode = 1
+anchors_preset = 0
+offset_left = 8.0
+offset_right = 8.0
+mouse_filter = 2
+
+[node name="InGameUi" parent="." instance=ExtResource("3_l0131")]
+total_time = 150.0
+
+[node name="SceneTransition" parent="." instance=ExtResource("4_nscu5")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_t3wrc")]

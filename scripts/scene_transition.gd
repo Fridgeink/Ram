@@ -5,9 +5,6 @@ extends CanvasLayer
 @onready var color_rect: ColorRect = $ColorRect
 @onready var next
 
-func _ready():
-	on()
-
 func on():
 	material.set_shader_parameter("reverse", true)
 	material.set_shader_parameter("progress", 1.0)
@@ -16,6 +13,8 @@ func on():
 	tween.tween_property(material, "shader_parameter/progress", 0.0, 0.5)
 	await tween.finished
 	hide()
+	if parent.name.to_lower() == "splash":
+		parent.anim.play("intro")
 
 
 func off():
@@ -30,7 +29,8 @@ func off():
 	change_to_next()
 
 func change_to_next():
-	print("res://scenes/" + str(parent.next_scene) + ".tscn")
-	Global.loading = "res://scenes/" + str(parent.next_scene) + ".tscn"
+	#print("res://scenes/" + str(parent.next_scene) + ".tscn")
+	CursorManager.hover = false
+	Global.loading = "res://scenes/" + parent.next_scene + ".tscn"
 	var loading_screen = load("res://scenes/loading_screen.tscn")
 	get_tree().change_scene_to_packed(loading_screen)

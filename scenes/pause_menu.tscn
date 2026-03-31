@@ -7,7 +7,7 @@
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
-layer = 10
+layer = 98
 visible = false
 script = ExtResource("1_n87rw")
 
@@ -35,16 +35,17 @@ text = "PAUSED"
 horizontal_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="."]
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = -92.0
-offset_top = -200.0
+offset_top = 10.0
 offset_right = 92.0
+offset_bottom = 64.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme = ExtResource("3_cniee")
 theme_override_constants/separation = 48
 
@@ -55,15 +56,4 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_myx47")
 text = "Resume"
 
-[node name="Exit" type="Button" parent="Buttons"]
-process_mode = 3
-custom_minimum_size = Vector2(150, 54)
-layout_mode = 2
-focus_neighbor_right = NodePath("../Resume")
-focus_neighbor_bottom = NodePath("../Resume")
-focus_next = NodePath("../Resume")
-theme_override_fonts/font = ExtResource("2_myx47")
-text = "Exit"
-
 [connection signal="pressed" from="Buttons/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Buttons/Exit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,10 @@
+set {box} = true
+ram (Worry): Hello?
+ram (Worry): Can anybody hear me?
+[wait time="5.0"]
+ram (Shook): Why am I even here???
+[wait time="3.0"]
+ram (Shook): ...
+ram (Wow): [i]I guess I'll have to look around...[/i]
+set {next} = true
+set {box} = false

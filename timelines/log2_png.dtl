@@ -1,0 +1,12 @@
+set {box} = true
+chip (Chip): * Memory log ???\
+* Type\: .png\
+* Category\: Classified
+[background arg="res://assets/sprites/cutscene/log2.png" fade="0.5"]
+[wait_input]
+ram (Worry): [shake]W-wait![/shake]
+ram (Worry): [shake]I'm in SPACE???[/shake]
+chip (Chip): * Image Description\:\
+* Etani Malplan Sector\: 743
+set {next} = true
+set {box} = false

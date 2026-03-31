@@ -1,19 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceo0w1oepfwpb"]
+[gd_scene load_steps=2 format=3 uid="uid://ceo0w1oepfwpb"]
 
-[ext_resource type="Script" path="res://scripts/cursor.gd" id="1_0d8c0"]
-[ext_resource type="Texture2D" uid="uid://bb6uk8t0iuwxk" path="res://assets/sprites/cursor.png" id="1_e45o1"]
 [ext_resource type="Script" path="res://scripts/in_game_ui.gd" id="1_nqvle"]
 
-[node name="InGameUi" type="CanvasLayer" groups=["Cursor"]]
-process_mode = 3
-layer = 100
+[node name="InGameUi" type="CanvasLayer"]
+layer = 90
 script = ExtResource("1_nqvle")
-
-[node name="Cursor" type="Sprite2D" parent="." groups=["Cursor"]]
-scale = Vector2(3, 3)
-texture = ExtResource("1_e45o1")
-centered = false
-script = ExtResource("1_0d8c0")
+total_time = 180.0
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -21,10 +13,12 @@ script = ExtResource("1_0d8c0")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -189.0
-offset_right = -8.0
-offset_bottom = 40.0
+offset_left = -198.0
+offset_top = 20.0
+offset_right = -17.0
+offset_bottom = 60.0
 grow_horizontal = 0
+mouse_filter = 2
 
 [node name="TimeLeft" type="Label" parent="TimerVisuals"]
 layout_mode = 2

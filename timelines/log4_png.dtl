@@ -1,0 +1,13 @@
+set {box} = true
+chip (Chip): * Memory log ???\
+* Type\: .png\
+* Category\: Personal File.
+[background arg="res://assets/sprites/cutscene/log4.png" fade="0.5"]
+[wait_input]
+ram (Default): They look... [shake][i]familiar[/i][/shake]... \
+But why was their face scribbled out???
+chip (Chip): * Image Description\:\
+* I won't fail my mission.
+ram (Default): ...
+set {next} = true
+set {box} = false

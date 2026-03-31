@@ -1,0 +1,20 @@
+set {box} = true
+chip (Chip): * Memory log ???\
+* Type\: .png\
+* Category\: Screenshot.
+[background arg="res://assets/sprites/cutscene/log3.png" fade="0.5"]
+[wait_input]
+ram (Default): Now [shake]WHY[/shake] would they go and censor all the information...
+ram (Wow): [i](And why with a cat..?)[/i]
+ram (Default): That Navi thing is also seeming kinda important.
+chip (Chip): * Image Description\:\
+* ->
+chip (Glitchy): * 01010100 01010010 01010101 01010011 \
+* 01010100 00100000 01001001 01010011 \
+* 00100000
+chip (Glitchy): * 01010011 01010101 01000010 01001010 \
+* 01000101 01000011 01010100 01001001 \
+* 01010110 01000101
+ram (Shook): ???
+set {next} = true
+set {box} = false

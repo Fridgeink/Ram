@@ -1,0 +1,51 @@
+set {box} = true
+pda: * Welcome, Ramada!
+ram (Shook): So- [i]THAT'S[/i] my name?
+pda: * I am your assigned Personal Digital \
+* Assistant, (PDA) from NAVI corp.
+pda: * To continue, please enter your \
+* PDA Password.\
+* (WARNING\: 1 Attempt Remaining.)
+[text_input text="Password:" var="password"]
+if {password} == "47200726":
+	pda: * Login Successful.\
+	* Scanning res\://mission_files...
+	ram (Default): It's not too late to complete the mission!
+	pda: * 1 Notable File Found.\
+	* Type\: .txt\
+	* Category\: Document.
+	pda: * Whatever you choose to do...
+	pda: * [shake]D o n ' t  p r e s s  \
+	* T h e  b u t t o n.[/shake]
+	ram (Worry): ???
+else:
+	chip (Glitchy): * Login Unsuccessful.\
+	* Deleting all files...
+	ram (Worry): [shake]NO![/shake]
+	pda: * Psych!\
+	* Initiating account \
+	* Recovery service...
+	ram (Wow): ...
+	pda: * Account Lock Message Found.\
+	* Type\: .txt\
+	* Category\: Personal File
+	pda: * In case NAVI tries anything stupid.\
+	* I need to let it be known.
+	pda: * To anyone reading this message. \
+	* Just know...
+	pda: * [shake]N A V I  h a s  b e e n\
+	* L y i n g  t o  y o u.[/shake]
+	pda: * [shake]D o  n o t  t r u s t  a n y  \
+	* T e c h n o l o g y  y o u  f i n d.[/shake]
+	pda: * T h e y -\
+	* Message terminated.
+	pda: * NAVI is unable to edit files without\
+	* Explicit user permission.
+	pda: * Your mission is to \
+	* Press the button.\
+	* Please ensure it's completion.
+	ram (Default): ...
+ram (Worry): [shake]I guess I have to choose now...[/shake]
+ram (Default): C'mon Ramada! think outside the box!
+set {next} = true
+set {box} = false

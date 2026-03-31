@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxlc28nntj5yu"
+path="res://.godot/imported/THICK SMOG.mp3-c076198a7cdc05317209710d2a0d8f74.mp3str"
+
+[deps]
+
+source_file="res://assets/music/memory/THICK SMOG.mp3"
+dest_files=["res://.godot/imported/THICK SMOG.mp3-c076198a7cdc05317209710d2a0d8f74.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

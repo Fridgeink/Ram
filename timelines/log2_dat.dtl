@@ -1,0 +1,12 @@
+set {box} = true
+chip (Chip): * Memory log ???\
+* Type\: .txt\
+* Category\:  Document.
+chip (Chip): * [glitch][wave][wave]-r[/wave][/wave][/glitch] the lifeforms on Etani Malplan,\
+* Sector\: 743
+chip (Chip): * Life is predominantly peaceful, but the dwindling resources are starting to showcase some...
+chip (Chip): * Interesting behaviours among the locals...
+ram (Shook): ?\
+(What could those people [i]POSSIBLY[/i] have done?)
+set {next} = true
+set {box} = false

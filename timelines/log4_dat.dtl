@@ -1,0 +1,22 @@
+set {box} = true
+chip (Chip): * Memory log ???\
+* Type\: .txt\
+* Category\: Audio Recording.
+chip (Chip): * -nesty, the real danger began with\
+* The emerging presence of the-
+chip (Glitchy): * [glitch][wave][wave]of the-[/wave][/wave][/glitch]\
+* [glitch][wave][wave]of the-[/wave][/wave][/glitch]\
+* [glitch][wave][wave]of the-[/wave][/wave][/glitch]
+ram (Wow): This is getting [shake]really[/shake] old, [shake]REALLY[/shake] fast...
+chip (Glitchy): * [glitch]-The Ram.[/glitch]
+chip (Glitchy): * [glitch]It's all the Ram's fault[/glitch]
+chip (Glitchy): * [glitch][wave][wave]It's all the Ram's fault[/wave][/wave][/glitch]\
+* [glitch][wave][wave]It's all the Ram's fault[/wave][/wave][/glitch]\
+* [glitch][wave][wave]It's all the Ram's fault[/wave][/wave][/glitch]
+ram (Worry): [shake]I-[/shake]
+ram (Worry): [shake]Was I-[/shake]
+ram (Default): [shake]N-NO! I-[/shake]I'm on this ship for a good reason! I just [i]KNOW[/i] it!
+ram (Default): [shake]I-I've-[/shake]
+ram (Default): [shake]I[/shake]'ve just gotta finish my mission...
+set {next} = true
+set {box} = false

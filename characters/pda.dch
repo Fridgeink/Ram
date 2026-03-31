@@ -1,0 +1,42 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"prefix": "",
+"sound_mood_default": "Default",
+"sound_moods": {
+"Default": {
+"mode": 0,
+"name": "Default",
+"pitch_base": 1.0,
+"pitch_variance": 0.0,
+"skip_characters": 0.0,
+"sound_path": "res://assets/sound/dialogue/key.wav",
+"volume_base": 10.0,
+"volume_variance": 0.0
+}
+},
+"style": "",
+"suffix": ""
+},
+"default_portrait": "PDA",
+"description": "",
+"display_name": "pda",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, 0),
+"portraits": {
+"PDA": {
+"export_overrides": {
+"image": "\"res://portraits/pda.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+"scale": 1.0
+}

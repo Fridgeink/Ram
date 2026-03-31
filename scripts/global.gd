@@ -6,6 +6,16 @@ var skipping : bool = false
 
 var current_scene : String = ""
 var currently_paused: bool = false
+
+var music_mute : bool = false
+var sfx_mute : bool = false
+
+var intro_done: bool = false
+
+var logs_complete: int = 0
+
+var button_pressed: bool = false
+
 func _input(event):
 	if event.is_action_pressed("fullscreen"):
 		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:

@@ -3,13 +3,16 @@ extends CanvasLayer
 @onready var start: Button = $Buttons/Start
 @onready var exit: Button = $Buttons/Exit
 @onready var transition: CanvasLayer = $SceneTransition
-@onready var next_scene: String = "main_menu"
+@onready var next_scene: String = "tutorial"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	transition.on()
 	SfxController.hum_noise()
 	if AudioController.active_playlist != "title":
 		AudioController.play_playlist("title")
+	if Global.intro_done:
+		next_scene = "main_menu"
 	await get_tree().process_frame
 	Global.current_scene = str(get_tree().current_scene.scene_file_path)
 

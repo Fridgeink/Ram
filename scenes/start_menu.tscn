@@ -101,7 +101,6 @@ autoplay = "title"
 [node name="InteractableAreas" type="Node2D" parent="."]
 
 [node name="RamScreen" parent="InteractableAreas" instance=ExtResource("4_cg5ic")]
-enabled = true
 type = "bump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableAreas/RamScreen"]
@@ -129,6 +128,18 @@ mouse_filter = 2
 material = SubResource("ShaderMaterial_7ss4r")
 texture = ExtResource("3_x1ddh")
 centered = false
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.5
+offset_top = 5.0
+offset_right = 33.5
+offset_bottom = 21.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.384314, 0.0705882, 0.345098, 1)
+text = "shingonet's"
 
 [connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]

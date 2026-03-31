@@ -11,29 +11,43 @@ config_version=5
 [application]
 
 config/name="R.A.M."
-run/main_scene="res://scenes/start_menu.tscn"
+config/version="0.1.0"
+run/main_scene="res://scenes/splash.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=80
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://assets/sprites/title.png"
 boot_splash/use_filter=false
 config/icon="res://portraits/ram.png"
+boot_splash/minimum_display_time=1000
 
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Global="*res://scenes/global.tscn"
-InGameUi="*res://scenes/in_game_ui.tscn"
 AudioController="*res://scenes/audio_controller.tscn"
 SfxController="*res://scenes/sfx_controller.tscn"
+CursorManager="*res://scenes/cursor_manager.tscn"
 
 [dialogic]
 
 directories/dch_directory={
 "chip": "res://characters/chip.dch",
+"pda": "res://characters/pda.dch",
 "ram": "res://characters/ram.dch"
 }
 directories/dtl_directory={
+"computer1": "res://timelines/computer1.dtl",
+"fail": "res://timelines/fail.dtl",
+"huh": "res://timelines/huh.dtl",
+"log1_dat": "res://timelines/log1_dat.dtl",
+"log1_png": "res://timelines/log1_png.dtl",
+"log2_dat": "res://timelines/log2_dat.dtl",
+"log2_png": "res://timelines/log2_png.dtl",
+"log3_dat": "res://timelines/log3_dat.dtl",
+"log3_png": "res://timelines/log3_png.dtl",
+"log4_dat": "res://timelines/log4_dat.dtl",
+"log4_png": "res://timelines/log4_png.dtl",
 "tut1": "res://timelines/tut1.dtl"
 }
 layout/style_list=["res://textbox_styles/portrait_textbox.tres", "res://textbox_styles/glitch_textbox.tres"]
@@ -53,7 +67,7 @@ animations/join_default_length=0.0
 animations/join_default_wait=false
 animations/leave_default_length=0.0
 animations/leave_default_wait=false
-animations/cross_fade_default_length=0.5
+animations/cross_fade_default_length=0.0
 choices/autofocus_first=true
 choices/delay=0.2
 choices/reveal_delay=0
@@ -79,20 +93,23 @@ glossary/default_case_sensitive=true
 animations/join_default="Instant In"
 animations/leave_default="Instant Out"
 variables={
-"box": false
+"box": false,
+"next": false,
+"password": ""
 }
-text/input_action="dialogic_default_action"
+text/input_action="confirm"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/custom-html-loader/plugin.cfg", "res://addons/dialogic/plugin.cfg")
 
 [global_group]
 
@@ -113,14 +130,13 @@ dialogic_default_action={
 }
 quit={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 fullscreen={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194335,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":52,"key_label":0,"unicode":52,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":61,"key_label":0,"unicode":61,"location":0,"echo":false,"script":null)
 ]
 }
 click={
@@ -130,13 +146,25 @@ click={
 }
 skip={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":48,"key_label":0,"unicode":48,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":45,"key_label":0,"unicode":45,"location":0,"echo":false,"script":null)
 ]
 }
 pause={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":46,"key_label":0,"unicode":46,"location":0,"echo":false,"script":null)
+]
+}
+mute={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":77,"key_label":0,"unicode":109,"location":0,"echo":false,"script":null)
+]
+}
+confirm={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(246, 28),"global_position":Vector2(255, 74),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 

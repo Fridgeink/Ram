@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8cugreo55wxs"]
+[gd_scene load_steps=9 format=3 uid="uid://b8cugreo55wxs"]
 
 [ext_resource type="Script" path="res://scripts/audio_controller.gd" id="1_dbap7"]
 [ext_resource type="AudioStream" uid="uid://gx0fxrsok2bt" path="res://assets/music/title/MEMORY.mp3" id="2_icbjt"]
-[ext_resource type="AudioStream" uid="uid://dmms4tvdq7nqt" path="res://assets/music/level1/SYSTEM INITIALIZE.mp3" id="3_miuev"]
+[ext_resource type="AudioStream" uid="uid://c2umbpktn3g04" path="res://assets/music/memory/SYSTEM INITIALIZE.mp3" id="3_vswgj"]
+[ext_resource type="AudioStream" uid="uid://cxlc28nntj5yu" path="res://assets/music/memory/THICK SMOG.mp3" id="4_33h1c"]
+[ext_resource type="AudioStream" uid="uid://cdbbp15u38dag" path="res://assets/music/memory/VOYAGE.mp3" id="5_oh4vw"]
+[ext_resource type="AudioStream" uid="uid://mv526evierur" path="res://assets/music/memory/COSMIC WAVE.mp3" id="6_cp2tt"]
+[ext_resource type="AudioStream" uid="uid://dse8cja8wthfu" path="res://assets/music/computer/OMI.mp3" id="8_5vk3n"]
+[ext_resource type="AudioStream" uid="uid://op32so6vrv47" path="res://assets/music/memory/DEEP.mp3" id="8_6w42h"]
 
 [node name="AudioController" type="Node"]
 script = ExtResource("1_dbap7")
@@ -11,10 +16,43 @@ script = ExtResource("1_dbap7")
 
 [node name="MEMORY" type="AudioStreamPlayer" parent="Title"]
 stream = ExtResource("2_icbjt")
-volume_db = -30.0
+volume_db = -20.0
+bus = &"Music"
 
-[node name="Level 1" type="Node" parent="."]
+[node name="Memory" type="Node" parent="."]
 
-[node name="SYSTEM INITIALIZE" type="AudioStreamPlayer" parent="Level 1"]
-stream = ExtResource("3_miuev")
-volume_db = -15.0
+[node name="SYSTEM INITIALIZE" type="AudioStreamPlayer" parent="Memory"]
+stream = ExtResource("3_vswgj")
+volume_db = -18.0
+bus = &"Music"
+
+[node name="THICK SMOG" type="AudioStreamPlayer" parent="Memory"]
+stream = ExtResource("4_33h1c")
+volume_db = -18.0
+bus = &"Music"
+
+[node name="VOYAGE" type="AudioStreamPlayer" parent="Memory"]
+stream = ExtResource("5_oh4vw")
+volume_db = -18.0
+bus = &"Music"
+
+[node name="COSMIC WAVE" type="AudioStreamPlayer" parent="Memory"]
+stream = ExtResource("6_cp2tt")
+volume_db = -18.0
+bus = &"Music"
+
+[node name="DEEP" type="AudioStreamPlayer" parent="Memory"]
+stream = ExtResource("8_6w42h")
+volume_db = -18.0
+bus = &"Music"
+
+[node name="Reset" type="Node" parent="."]
+
+[node name="Reset" type="AudioStreamPlayer" parent="Reset"]
+
+[node name="Computer" type="Node" parent="."]
+
+[node name="OMI" type="AudioStreamPlayer" parent="Computer"]
+stream = ExtResource("8_5vk3n")
+volume_db = -18.0
+bus = &"Music"
