@@ -54,5 +54,5 @@ bus = &"Music"
 
 [node name="OMI" type="AudioStreamPlayer" parent="Computer"]
 stream = ExtResource("8_5vk3n")
-volume_db = -18.0
+volume_db = -15.0
 bus = &"Music"

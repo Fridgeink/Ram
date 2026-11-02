@@ -25,6 +25,8 @@ var active_speed: float = 0.01
 
 var speed_counter: float = 0
 
+const BASE_WIDTH := 640.0
+
 func _set(property: StringName, what: Variant) -> bool:
 	if property == 'text' and typeof(what) == TYPE_STRING:
 
@@ -51,6 +53,16 @@ func _ready() -> void:
 	if start_hidden:
 		textbox_root.hide()
 	text = ""
+
+	if material is ShaderMaterial:
+		get_tree().root.size_changed.connect(_update_glitch_scale)
+		_update_glitch_scale()
+
+
+func _update_glitch_scale() -> void:
+	if material is ShaderMaterial:
+		var scale_factor = get_viewport().get_visible_rect().size.x / BASE_WIDTH
+		material.set_shader_parameter("resolution_scale", scale_factor)
 
 
 # this is called by the DialogicGameHandler to set text

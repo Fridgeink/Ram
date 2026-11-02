@@ -10,6 +10,7 @@ extends Control
 var logs: Array = []
 
 func _ready() -> void:
+	Global.title = ""
 	transition.on()
 	Dialogic.VAR.next = false
 	if AudioController.active_playlist != "reset":
@@ -21,7 +22,8 @@ func _ready() -> void:
 
 	await get_tree().process_frame
 	Global.current_scene = str(get_tree().current_scene.scene_file_path)
-
+	if pda.enabled and Global.logs_complete < 4:
+		pda.enabled = false
 	# Get all logs dynamically
 	logs = logs_container.get_children()
 
@@ -40,15 +42,22 @@ func _process(_delta: float) -> void:
 func update_logs() -> void:
 	pda.enabled = false
 	anim.play("RESET")
+
+	var active = clamp(Global.logs_complete, 0, logs.size() - 1)
+
 	for i in range(logs.size()):
 		var mlog = logs[i]
-
-		if i == clamp(Global.logs_complete, 0, logs.size() - 1):
+		if i == active:
 			mlog.enabled = true
-			mlog.anim.play("fade") # active one fades in
 		else:
 			mlog.enabled = false
-			mlog.anim.play("RESET") # others reset/hidden
+			mlog.anim.play("RESET")
+
+	await get_tree().create_timer(60).timeout
+	if not is_instance_valid(self):
+		return
+
+	logs[active].anim.play("fade")
 
 func show_pda() -> void:
 	pda.enabled = true

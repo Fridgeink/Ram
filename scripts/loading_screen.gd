@@ -5,6 +5,7 @@ var next := Global.loading
 var scene_load_status
 
 func _ready() -> void:
+	Global.title = ""
 	load_next()
 
 func load_next():

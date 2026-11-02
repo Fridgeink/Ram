@@ -4,8 +4,8 @@ extends Control
 @onready var next_scene: String = "start_menu"
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.title = "I hate this guy"
 	SfxController.reveal_noise()
 	transition.on()
 

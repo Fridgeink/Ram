@@ -1,18 +1,24 @@
 set {box} = true
-chip (Chip): * Memory log ???\
+chip (Chip): * Memory Log ???\
 * Type\: .txt\
 * Category\: Document.
-chip (Chip): * The NAVI space exploration group has been exploring the universe for millennia!
-chip (Chip): * The ultimate goal of these travels is to find safe, inhabitable planets f[glitch][wave][wave]o-[/wave][/wave][/glitch]
+chip (Chip): * The NAVI space exploration group\
+* has been exploring the universe \
+* for millennia!
+chip (Chip): * The ultimate goal of these travels\
+* is to find safe, inhabitable planets \
+* f[glitch][wave][wave]o-[/wave][/wave][/glitch]
 chip (Glitchy): * [glitch][wave][wave]Our planet.[/wave][/wave][/glitch]\
 \
 * [glitch][wave][wave]?Their home[/wave][/wave][/glitch]
 chip (Glitchy): * [shake]Is being rappidly destroyed.[/shake]
-chip (Chip): * And so as a last ditch effort to save our planet w[glitch][wave][wave]e've-[/wave][/wave][/glitch]
-chip (Glitchy): * w[glitch][wave][wave]e've-[/wave][/wave][/glitch]\
-* w[glitch][wave][wave]e've-[/wave][/wave][/glitch]\
-* w[glitch][wave][wave]e've-[/wave][/wave][/glitch]
-ram (Shook): ???
+chip (Chip): * And so as a last ditch effort to \
+* save our planet w[glitch][wave][wave]e've-[/wave][/wave][/glitch]
+chip (Glitchy): * w[glitch][wave][wave]e've-[/wave][/wave][/glitch] w[glitch][wave][wave]e've-[/wave][/wave][/glitch] w[glitch][wave][wave]e've-[/wave][/wave][/glitch]\
+* w[glitch][wave][wave]e've-[/wave][/wave][/glitch] w[glitch][wave][wave]e've-[/wave][/wave][/glitch] w[glitch][wave][wave]e've-[/wave][/wave][/glitch]\
+* w[glitch][wave][wave]e've-[/wave][/wave][/glitch] w[glitch][wave][wave]e've-[/wave][/wave][/glitch] w[glitch][wave][wave]e've-[/wave][/wave][/glitch]
+ram (Worry): [shake]???[/shake]
+ram (Shook): ...
 ram (Wow): [i]That'll have to do I suppose...[/i]
 set {next} = true
 set {box} = false

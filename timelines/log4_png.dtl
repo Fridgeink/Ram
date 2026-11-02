@@ -1,5 +1,5 @@
 set {box} = true
-chip (Chip): * Memory log ???\
+chip (Chip): * Memory Log ???\
 * Type\: .png\
 * Category\: Personal File.
 [background arg="res://assets/sprites/cutscene/log4.png" fade="0.5"]

@@ -1,18 +1,15 @@
 extends Node
 
-var title: String = "Randomly Accessing Memories..."
+var title: String = "RAM."
 var loading : String
 var skipping : bool = false
 
 var current_scene : String = ""
 var currently_paused: bool = false
 
-var music_mute : bool = false
-var sfx_mute : bool = false
-
 var intro_done: bool = false
 
-var logs_complete: int = 0
+var logs_complete: int = 3
 
 var button_pressed: bool = false
 
@@ -22,13 +19,14 @@ func _input(event):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	if event.is_action_pressed("quit"):
-		get_tree().quit()
+	# Close game instantly for debug
+	#if event.is_action_pressed("quit"):
+		#get_tree().quit()
 	elif event.is_action_pressed("skip") and Dialogic.VAR.box:
 			skipping = true
 
 func _process(_delta: float) -> void:
-	DisplayServer.window_set_title(title + " (FPS: " + str(Engine.get_frames_per_second())  + ")" )
+	DisplayServer.window_set_title(title)
 	if skipping and Dialogic.VAR.box:
 		Dialogic.Inputs.auto_skip.enabled = true
 		Dialogic.Inputs.auto_advance.enabled_until_next_event = true
@@ -38,6 +36,10 @@ func _process(_delta: float) -> void:
 		Dialogic.Inputs.auto_advance.enabled_until_next_event = false
 		skipping = false
 
+func reset_prog() -> void:
+	intro_done = false
+	logs_complete = 0
+	button_pressed = false
 
 # This game uses Godot Engine, available under the following license:
 # Copyright (c) 2014-present Godot Engine contributors.

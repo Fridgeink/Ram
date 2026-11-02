@@ -29,7 +29,7 @@ func choose_ending() -> void:
 
 
 func _input(event):
-	if event.is_action_pressed("confirm"):
+	if event.is_action_pressed("skip"):
 		timer.stop()
 		transition.off()
 

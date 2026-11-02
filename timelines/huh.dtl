@@ -5,6 +5,6 @@ ram (Worry): Can anybody hear me?
 ram (Shook): Why am I even here???
 [wait time="3.0"]
 ram (Shook): ...
-ram (Wow): [i]I guess I'll have to look around...[/i]
+ram (Wow): [i](I guess I'll have to look around...?)[/i]
 set {next} = true
 set {box} = false

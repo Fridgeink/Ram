@@ -1,10 +1,10 @@
 set {box} = true
-chip (Chip): * Memory log ???\
+chip (Chip): * Memory Log ???\
 * Type\: .png\
 * Category\: Screenshot.
 [background arg="res://assets/sprites/cutscene/log3.png" fade="0.5"]
 [wait_input]
-ram (Default): Now [shake]WHY[/shake] would they go and censor all the information...
+ram (Default): Now [shake]why[/shake] would they go and censor all the information...
 ram (Wow): [i](And why with a cat..?)[/i]
 ram (Default): That Navi thing is also seeming kinda important.
 chip (Chip): * Image Description\:\

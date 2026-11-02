@@ -1,13 +1,14 @@
 extends Area2D
 
-@export var enabled: bool = true
-@onready var next_scene: String = str(name).to_lower()
+@export var enabled: bool = false
+@onready var next_scene: String = "log"
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var area_name = str(name).to_lower()
 @onready var parent := get_node("../..")
 
 var hovered: bool = false
+var corrupt: bool = false
 
 func _input(event: InputEvent) -> void:
 	if not enabled:

@@ -1,14 +1,15 @@
 set {box} = true
-chip (Chip): * Memory log ???\
+chip (Chip): * Memory Log ???\
 * Type\: .png\
 * Category\: Classified.
 [background arg="res://assets/sprites/cutscene/log1.png" fade="0.5"]
 [wait_input]
 ram (Shook): ???
 ram (Worry): [shake]I-Is that...[/shake]
-ram (Worry): [shake]Me???[/shake]
-ram (Worry): Why would I even be in some... [i][shake]freaky[/shake][/i] laboratory???
+ram (Worry): [shake]M-Me???[/shake]
+ram (Worry): Why would I even [shake]be[/shake] in some... [i][shake]freaky[/shake][/i] chamber???
 chip (Chip): * Image Description\:\
-* Never. Again.
+* Never. \
+* Again.
 set {next} = true
 set {box} = false

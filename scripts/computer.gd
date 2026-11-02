@@ -8,6 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.title = "Navi OS"
 	anim.play("RESET")
 	if AudioController.active_playlist != "computer":
 		AudioController.play_playlist("computer")
@@ -21,6 +22,7 @@ func _ready() -> void:
 
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade":
+		Global.title = "The Choice"
 		$Button/Button.enabled = true
 		timer.show()
 		timer.start_timing()

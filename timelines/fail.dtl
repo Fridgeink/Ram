@@ -1,8 +1,8 @@
 set {box} = true
 chip (Glitchy): * ERROR. \
-* File Download failed\: \
-* The file is corrupted or incomplete.
+* File Download Failed\: \
+* The File Is Corrupted Or Incomplete.
 ram (Default): Dammit!
-ram (Wow): [i]I'll have to... look for another one I guess...[/i]
+ram (Wow): [i](I'll have to... look for another one I guess...)[/i]
 set {next} = true
 set {box} = false

@@ -1,7 +1,7 @@
 set {box} = true
-chip (Chip): * Memory log ???\
+chip (Chip): * Memory Log ???\
 * Type\: .png\
-* Category\: Classified
+* Category\: Classified.
 [background arg="res://assets/sprites/cutscene/log2.png" fade="0.5"]
 [wait_input]
 ram (Worry): [shake]W-wait![/shake]
